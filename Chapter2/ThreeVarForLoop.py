@@ -19,21 +19,36 @@ with open('/Users/xiongconghao/Downloads/breast-cancer-train.csv', 'r') as f:
         y.append(int(line[3]))
         line=f.readline()
 
+length=len(x1)
 w1=0.0
 w2=0.0
 w3=0.0
 b=0.0
-alpha=0.001
-length=len(x1)
-for i in range(0,length-1):
-    z=w1*x1[i]+w2*x2[i]+w3*x3[i]+b
-    a=sigmoid(z)
-    l=a-y[i]
-    print(l)
-    w1-=alpha*l*x1[i]
-    w2-=alpha*l*x2[i]
-    w3-=alpha*l*x3[i]
-    b-=alpha*l
+alpha=0.00001
+for times in range(1,50):
+    dw1=0.0
+    dw2=0.0
+    dw3=0.0
+    db=0.0
+    J=0.0
+    for i in range(0,length-1):
+        z=w1*x1[i]+w2*x2[i]+w3*x3[i]+b
+        a=sigmoid(z)
+        dz=a-y[i]
+        J+=-(y[i]*math.log(math.e,a)+(1-y[i])*math.log(math.e,(1-a)))
+        dw1+=x1[i]*dz
+        dw2+=x2[i]*dz
+        dw3+=x3[i]*dz
+        db+=dz
+    J/=length
+    dw1/=length
+    dw2/=length
+    dw3/=length
+    db/=length
+    w1-=alpha*dw1
+    w2-=alpha*dw2
+    w3-=alpha*dw3
+    b-=alpha*db
 
 print("w1="+str(w1))
 print("w2="+str(w2))
