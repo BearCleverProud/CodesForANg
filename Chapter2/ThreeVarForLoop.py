@@ -7,6 +7,7 @@ x1=[]
 x2=[]
 x3=[]
 y=[]
+
 with open('/Users/xiongconghao/Downloads/breast-cancer-train.csv', 'r') as f:
     f.readline()
     line=f.readline()
@@ -49,11 +50,6 @@ for times in range(1,50):
     w2-=alpha*dw2
     w3-=alpha*dw3
     b-=alpha*db
-
-print("w1="+str(w1))
-print("w2="+str(w2))
-print("w3="+str(w3))
-print("b="+str(b))
 
 while int(input("Do you want to continue test?"))==1:
     test1=float(input("Input tumor thickness:"))
