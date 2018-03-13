@@ -3,6 +3,9 @@ import math
 def sigmoid(z):
     return 1/(1+math.e**(-z))
 
+def lostfunction(y,a):
+    return -(y*math.log(math.e,a)+(1-y)*math.log(math.e,(1-a)))
+
 x1=[]
 x2=[]
 x3=[]
@@ -47,12 +50,10 @@ for times in range(1,100):
     w3=w3-alpha*dw3
     b=b-alpha*db
 
-resultOffSet=-0.683878244925
-power=2
 print(w1,w2,w3,b)
 while int(input("Do you want to continue test?:"))==1:
     test1=float(input("Input first para:"))
     test2=float(input("Input second para:"))
     test3=float(input("Input final para:"))
-    result=((sigmoid(w1*test1+w2*test2+w3*test3+b)+resultOffSet)/(1+resultOffSet))**power
+    result=((sigmoid(w1*test1+w2*test2+w3*test3+b)))
     print(result)
