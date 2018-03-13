@@ -54,4 +54,5 @@ while int(input("Do you want to continue test?:"))==1:
     test1=float(input("Input first para:"))
     test2=float(input("Input second para:"))
     test3=float(input("Input final para:"))
-    print(((sigmoid(w1*test1+w2*test2+w3*test3+b)+resultOffSet)/(1+resultOffSet))**(power))
+    result=((sigmoid(w1*test1+w2*test2+w3*test3+b)+resultOffSet)/(1+resultOffSet))**power
+    print(result)
