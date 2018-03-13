@@ -19,7 +19,6 @@ with open('breast-cancer-train.csv', 'r') as f:
         y.append(int(line[3]))
         line=f.readline()
 
-
 length=len(x1)
 w1=0.0
 w2=0.0
@@ -49,9 +48,10 @@ for times in range(1,100):
     b=b-alpha*db
 
 resultOffSet=-0.683878244925
+power=2
 print(w1,w2,w3,b)
 while int(input("Do you want to continue test?:"))==1:
     test1=float(input("Input first para:"))
     test2=float(input("Input second para:"))
     test3=float(input("Input final para:"))
-    print(((sigmoid(w1*test1+w2*test2+w3*test3+b)+resultOffSet)/(1+resultOffSet))**(2))
+    print(((sigmoid(w1*test1+w2*test2+w3*test3+b)+resultOffSet)/(1+resultOffSet))**(power))
