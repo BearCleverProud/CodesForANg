@@ -3,8 +3,8 @@ import math
 def sigmoid(z):
     return 1/(1+math.e**(-z))
 
-def lostfunction(y,a):
-    return -(y*math.log(math.e,a)+(1-y)*math.log(math.e,(1-a)))
+def costfunction(y,a):
+    return (y-a)**2
 
 x1=[]
 x2=[]
@@ -27,24 +27,24 @@ w1=0.0
 w2=0.0
 w3=0.0
 b=0.0
-alpha=0.002978971912446
-for times in range(1,100):
+J=100
+alpha=0.1
+accuracy=0.04
+while J>accuracy:
     dw1=0.0
     dw2=0.0
     dw3=0.0
     db=0.0
+    J=0.0
     for i in range(0,length):
         z=w1*x1[i]+w2*x2[i]+w3*x3[i]+b
         a=sigmoid(z)
-        dz=a-y[i]
-        dw1+=dz*x1[i]
-        dw2+=dz*x2[i]
-        dw3+=dz*x3[i]
-        db+=dz
-    dw1=dw1/float(length)
-    dw2=dw2/float(length)
-    dw3=dw3/float(length)
-    db=db/float(length)
+        dz=(a-y[i])*2*a*(1-a)/length
+        J+=costfunction(y[i],a)/length
+        dw1+=dz*x1[i]/length
+        dw2+=dz*x2[i]/length
+        dw3+=dz*x3[i]/length
+        db+=dz/length
     w1=w1-alpha*dw1
     w2=w2-alpha*dw2
     w3=w3-alpha*dw3
