@@ -29,7 +29,9 @@ w3=0.0
 b=0.0
 J=100
 alpha=0.1
-accuracy=0.04
+accuracy=0.03
+print("Calculating, please wait for some time")
+
 while J>accuracy:
     dw1=0.0
     dw2=0.0
