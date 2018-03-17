@@ -48,9 +48,7 @@ while J>accuracy:
     a=sigmoid(z)
     dz=(a-y)*2*a*(1-a)/length
     J=np.sum(costfunction(a,y))/length
-    dw[0,0]=np.sum(np.dot(x1.T,dz))/length
-    dw[0,1]=np.sum(np.dot(x2.T,dz))/length
-    dw[0,2]=np.sum(np.dot(x3.T,dz))/length
+    dw=np.sum(np.dot(X.T,dz),axis=1,keepdims=True).T/length
     db=np.sum(dz)/length
     w-=alpha*dw
     b-=alpha*db
