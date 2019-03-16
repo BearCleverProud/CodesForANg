@@ -60,7 +60,6 @@ while J>accuracy:
     b2-=db2*alpha
     W1-=dw1*alpha
     b1-=db1*alpha
-    print(J)
 
 elapsed = (time.clock() - start)
 print("Time used:",elapsed)

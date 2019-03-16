@@ -10,7 +10,6 @@ while error>accuracy or error<-accuracy:
     x-=(-10*x+14)*(-5*x**2+14*x+3)*alpha*2
     error=(3+14*x-5*(x**2))**2
     count+=1
-    print(x)
 
 print(x)
 print(count)
